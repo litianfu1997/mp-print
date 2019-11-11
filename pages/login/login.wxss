@@ -1,0 +1,48 @@
+/* pages/login/login.wxss */
+.mainbox{
+  display: flex;
+  flex-direction: column;
+}
+.top-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500rpx;
+}
+.mid-box{
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-right: 50px; 
+}
+.bot-box{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  margin: 0 10px;
+  margin-top: 20px;
+}
+.top{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+.mid{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+.logo{
+  width: 250rpx;
+
+}
+.input-border{
+  width: 100%;
+}
+.input-h{
+  font-size: 18px;
+  text-align: center;
+}
