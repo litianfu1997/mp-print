@@ -12,7 +12,7 @@ Page({
   loginTap() {
     console.log("登录按钮")
     wx.request({
-      url: '',
+      url: 'http://localhost:8080/login',
       method:"post",
       data: {
         "number": this.data.number,
@@ -20,9 +20,21 @@ Page({
       },
       success(res) {
         //跳转到主页面
-        wx.switchTab({
-          url: '/pages/main/main',
-        })
+        if(res.data.status == "success"){
+          
+          wx.switchTab({
+            url: '/pages/main/main',
+          })
+          wx.showToast({
+            title: res.data.msg,
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon:"none"
+          })
+        }
+        
       }
     })
 
