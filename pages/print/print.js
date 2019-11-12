@@ -1,16 +1,28 @@
-// pages/main/main.js
+// pages/print/print.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    index:0,
+    array: ['A4', 'A3', '16开', '明信片'],
+    element:"A4",
   },
-  print(){
-    wx.navigateTo({
-      url: '/pages/print/print',
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
     })
+    this.setData({
+      element:this.data.array[this.data.index],
+    })
+  },
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  },
+  formReset: function () {
+    console.log('form发生了reset事件')
   },
 
   /**
