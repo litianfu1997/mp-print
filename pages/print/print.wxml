@@ -1,6 +1,6 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="section">
-    <picker name='yemian' bindchange="bindPickerChange" value="{{element}}" range="{{array}}">
+    <picker name='size' bindchange="bindPickerChange" value="{{element}}" range="{{array}}">
       <view class="picker">
         页面大小：{{array[index]}}
       </view>
@@ -9,7 +9,7 @@
 
   <view class="section section_gap row">
     <view class="section__title">打印方式：</view>
-    <radio-group name="radio-group-a">
+    <radio-group name="printStyle">
       <label>
         <radio value="单面" />单面</label>
       <label>
@@ -20,7 +20,7 @@
   </view>
   <view class="section section_gap row">
     <view class="section__title">黑白彩色：</view>
-    <radio-group name="radio-group-b">
+    <radio-group name="printColor">
       <label>
         <radio value="黑白" />黑白</label>
       <label>
@@ -30,7 +30,8 @@
     </radio-group>
   </view>
   <view class="section">
-    <textarea name="beizhu"  bindblur="bindTextAreaBlur" auto-height placeholder="自动变高" />
+    备注：
+    <textarea name="note"  bindblur="bindTextAreaBlur" auto-height placeholder="请补充打印信息" />
   </view>
 
 

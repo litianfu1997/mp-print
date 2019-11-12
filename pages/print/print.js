@@ -8,6 +8,7 @@ Page({
     index:0,
     array: ['A4', 'A3', '16开', '明信片'],
     element:"A4",
+    user:null,
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -20,6 +21,22 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var user = this.data.user;
+    wx.request({
+      url: 'http://localhost:8080/print',
+      method:"post",
+      // data:e.detail.value,
+      data:{
+        "number":user.number,
+        "size": e.detail.value.size,
+        "printStyle": e.detail.value.printStyle,
+        "printColor": e.detail.value.printColor,
+        "note":e.detail.value.note
+      },
+      success(res){
+
+      }
+    })
   },
   formReset: function () {
     console.log('form发生了reset事件')
@@ -29,7 +46,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
+    var userTemp = wx.getStorageSync("user")
+    // console.log(userTemp.name)
+    this.setData({
+      user: userTemp
+    })
+    // var user123 = this.data.user
+    // console.log(user123.number)
   },
 
   /**
